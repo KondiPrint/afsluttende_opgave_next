@@ -2,28 +2,34 @@ import Link from 'next/link';
 
 const Navbar = () => {
   return (
-    <nav className='text-white bg-sky-700 py-4'>
-      <div className='container flex items-center justify-between px-4 mx-auto'>
+    <nav className='bg-cyan-800'>
+      <div className='container flex flex-auto'>
         <div>
           <a href='#' className='text-xl font-bold'>
             Logo
           </a>
         </div>
 
-        <div>
+        <menu>
           <Link href='/' className='hover:text-gray-200'>
             Home
           </Link>
-          <Link href='/pages/about' className='hover:text-gray-200'>
-            Om os
+          <Link href='/pages/energidata' className='hover:text-gray-200'>
+            Energidata
           </Link>
-          <Link href='/pages/news' className='hover:text-gray-200'>
+          <Link href='/pages/nyheder' className='hover:text-gray-200'>
             Nyheder
           </Link>
-          <Link href='/pages/contact' className='hover:text-gray-200'>
-            Kontakt
+          <Link href='/pages/vejret' className='hover:text-gray-200'>
+            Vejret
           </Link>
-        </div>
+          <Link href='/pages/viborgHaveService_1' className='hover:text-gray-200'>
+            VHS_1
+          </Link>
+          <Link href='/pages/viborgHaveService_2' className='hover:text-gray-200'>
+            VHS_2
+          </Link>
+        </menu>
       </div>
     </nav>
   );
