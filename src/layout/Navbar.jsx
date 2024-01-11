@@ -2,15 +2,9 @@ import Link from 'next/link';
 
 const Navbar = () => {
   return (
-    <nav className='bg-cyan-800'>
-      <div className='container flex flex-auto'>
-        <div>
-          <a href='#' className='text-xl font-bold'>
-            Logo
-          </a>
-        </div>
-
-        <menu>
+    <nav>
+      <div className='flex justify-center'>
+        <menu className='flex gap-5'>
           <Link href='/' className='hover:text-gray-200'>
             Home
           </Link>
@@ -24,10 +18,10 @@ const Navbar = () => {
             Vejret
           </Link>
           <Link href='/pages/viborgHaveService_1' className='hover:text-gray-200'>
-            VHS_1
+            VHS
           </Link>
-          <Link href='/pages/viborgHaveService_2' className='hover:text-gray-200'>
-            VHS_2
+          <Link href='/pages/reviews' className='hover:text-gray-200'>
+            Reviews
           </Link>
         </menu>
       </div>

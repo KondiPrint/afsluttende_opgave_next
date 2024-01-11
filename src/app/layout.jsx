@@ -15,7 +15,9 @@ export default function RootLayout({ children }) {
     <html lang='en'>
       <body className={inter.className}>
         <Header />
-        {children}
+        <section className='container mx-auto'>
+          <main className='py-8 mx-auto md:px-4'>{children}</main>
+        </section>
         <Footer />
       </body>
     </html>
