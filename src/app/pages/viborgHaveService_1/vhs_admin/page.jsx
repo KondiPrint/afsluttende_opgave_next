@@ -6,7 +6,7 @@ import Loader from '@/components/Loader';
 import Error from '@/components/Error';
 import Link from 'next/link';
 
-const ShoppingListEdit = () => {
+const VHS_Edit = () => {
   const { data, isLoading, error, makeRequest } = useRequestData(); // * GET
   const { data: dataPUT, isLoading: isLoadingPUT, error: errorPUT, makeRequest: makeRequestPUT } = useRequestData(); // * PUT
 
@@ -27,7 +27,7 @@ const ShoppingListEdit = () => {
   const handleSubmit = (e) => {
     e.preventDefault(); //VIGTIG!!
 
-    const redigeretText = { data: { content: content } };
+    const redigeretText = { content: content };
 
     makeRequestPUT(`http://localhost:5023/aboutus/admin`, 'PUT', redigeretText);
   };
@@ -40,39 +40,44 @@ const ShoppingListEdit = () => {
       {isLoading || (isLoadingPUT && <Loader />)}
 
       {dataPUT && (
-        <div className='card mb-6'>
-          <h2 className='text-center italic text-2xl'>The list has been edited</h2>
-          <div className='border-2'>
-            <p>
-              <span className='font-bold'>Indhold:</span>
-              <br /> {dataPUT.content}
-            </p>
+        <div className='card w-full bg-base-100 shadow-xl'>
+          <div className='card-body'>
+            <h2 className='text-center italic text-2xl'>Teksten er blevet redigeret</h2>
+            <div>
+              <p>{dataPUT.about.content}</p>
+            </div>
           </div>
         </div>
       )}
 
-      <form className='form-control mx-auto w-11/12' onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor='txtContent' className='block mb-5 font-semibold text-lg'>
-            Indhold
-          </label>
-          <textarea className='border-2' value={content} onInput={(e) => setContent(e.target.value)} name='txtContent' id='txtContent' cols='50' rows='10' placeholder='Indhold her...'></textarea>
-        </div>
+      <form className='form-control my-10' onSubmit={handleSubmit}>
+        <label className='form-control' name='txtContent'>
+          <div className='label'>
+            <span className='label-text'>Rediger om os</span>
+          </div>
+          <textarea
+            className='textarea textarea-bordered h-36'
+            placeholder='Indtast kommentar her...'
+            value={content}
+            name='txtContent'
+            id='txtContent'
+            onInput={(e) => setContent(e.target.value)}></textarea>
+        </label>
 
-        <div className='mt-12'>
+        <div className='mt-10'>
           <Link
             href={{
               pathname: `/pages/viborgHaveService_1`,
             }}
-            className='rounded-md bg-green-500 p-2 mr-4'>
-            ← Back
+            className='btn btn-primary mr-5'>
+            ← Tilbage
           </Link>
-          <button type='submit' className='rounded-md bg-blue-500 p-2'>
-            Finalise Edit
+          <button type='submit' className='btn btn-accent'>
+            Færdiggør
           </button>
         </div>
       </form>
     </>
   );
 };
-export default ShoppingListEdit;
+export default VHS_Edit;

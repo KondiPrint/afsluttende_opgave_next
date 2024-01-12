@@ -51,7 +51,7 @@ export default function ViborgHaveService1() {
         </div>
       </div>
       <Link href='/pages/viborgHaveService_1/vhs_admin'>
-        <button className='rounded-md p-4 bg-green-500 ml-6 text-white my-10 hover:bg-green-400'>SE ALLE YDELSER</button>
+        <button className='btn bg-green-500 text-white my-10 hover:bg-green-400'>SE ALLE YDELSER</button>
       </Link>
     </>
   );
