@@ -1,17 +1,85 @@
 'use client';
+
+import React from 'react';
+import { useEffect, useState } from 'react';
+import useRequestData from '@/components/hooks/useRequestData';
 import Loader from '@/components/Loader';
 import Error from '@/components/Error';
-import useRequestData from '@/components/hooks/useRequestData';
+import Vejr_kort from '@/components/Vejr_kort';
+import Vejr_udsigt from '@/components/Vejr_udsigt';
 
-export default function Vejret() {
+const Vejret = () => {
   const { data, isLoading, error, makeRequest } = useRequestData();
 
-  return (
+  const { data: dataZipcode, isLoading: isLoadingZipcode, error: errorZipcode, makeRequest: makeRequestZipcode } = useRequestData();
+
+  const { data: dataForecast, isLoading: isLoadingForecast, error: errorForecast, makeRequest: makeRequestForecast } = useRequestData();
+
+  const { data: dataCoord, isLoading: isLoadingCoord, error: errorCoord, makeRequest: makeRequestCoord } = useRequestData();
+
+  const [zip, setZip] = useState('8240');
+  const [valid, setValid] = useState(true);
+
+  const [lat, setLat] = useState(56);
+  const [lon, setLon] = useState(10);
+
+  useEffect(() => {
+    makeRequestZipcode(`https://api.dataforsyningen.dk/postnumre/autocomplete?q=${zip}`, 'GET');
+
+    if (valid) {
+      makeRequest(`https://api.openweathermap.org/data/2.5/weather?zip=${zip},dk&units=metric&&appid=9054bb4dc6a164f93ef4ceb91f4fc8e2&lang=da`, 'GET');
+
+      makeRequestForecast(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&lang=da&units=metric&appid=9054bb4dc6a164f93ef4ceb91f4fc8e2`, 'GET');
+
+      makeRequestCoord(`https://api.openweathermap.org/geo/1.0/zip?zip=${zip},dk&appid=9054bb4dc6a164f93ef4ceb91f4fc8e2`, 'GET');
+    }
+  }, [zip]);
+
+  http: return (
     <>
-      <h1>Vejret</h1>
+      <h1 className='text-center text-4xl font-semibold my-5'>Vejrudsigt</h1>
 
       {isLoading && <Loader />}
       {error && <Error />}
+
+      <div className='flex flex-col my-6'>
+        <input
+          type='text'
+          list='list_zips'
+          id='zip_code'
+          name='zip_code'
+          maxLength={4}
+          minLength={4}
+          pattern='[0-9]{4}'
+          placeholder='Type zip-code here'
+          required
+          onChange={(e) => {
+            {
+              setZip(e.target.value);
+              setValid(e.target.checkValidity());
+              const { lat, lon } = dataCoord || {};
+              setLat(lat);
+              setLon(lon);
+            }
+          }}
+          className='input input-bordered w-full max-w-xs text-center m-auto'
+        />
+
+        <datalist id='list_zips'>
+          {dataZipcode &&
+            dataZipcode.map((z, index) => (
+              <option key={index} value={z.postnummer.nr}>
+                {z.postnummer.nr} {z.postnummer.navn}
+              </option>
+            ))}
+        </datalist>
+      </div>
+
+      {data && <Vejr_kort data={data} />}
+
+      {data && <Vejr_udsigt dataForecast={dataForecast} dataCoord={dataCoord} />}
     </>
   );
-}
+};
+
+export default Vejret;
