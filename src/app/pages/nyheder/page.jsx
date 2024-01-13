@@ -2,7 +2,7 @@
 import Loader from '@/components/Loader';
 import Error from '@/components/Error';
 import useRequestData from '@/components/hooks/useRequestData';
-import News_alt from '@/components/News_everything';
+import Nyheder_kort from '@/components/Nyheder_kort';
 import { useState, useEffect } from 'react';
 import newsRequestParameter from '../../../../public/assets/newsapi_requestparameters.json';
 import { FaSearch } from 'react-icons/fa';
@@ -84,7 +84,7 @@ export default function Nyheder() {
         </select>
       </form>
 
-      <News_alt data={data} />
+      <Nyheder_kort data={data} />
     </>
   );
 }

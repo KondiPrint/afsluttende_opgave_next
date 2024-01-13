@@ -5,7 +5,7 @@ import { formatDistanceToNow } from 'date-fns';
 import { da } from 'date-fns/locale';
 import Link from 'next/link';
 
-const News_alt = ({ data }) => {
+const Nyheder_kort = ({ data }) => {
   return (
     <>
       <div className='grid grid-cols-3 gap-10'>
@@ -37,4 +37,4 @@ const News_alt = ({ data }) => {
     </>
   );
 };
-export default News_alt;
+export default Nyheder_kort;

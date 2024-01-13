@@ -29,7 +29,7 @@ const Vejr_udsigt = ({ dataForecast, dataCoord }) => {
             <div className='collapse collapse-arrow bg-base-200 mt-10' key={index}>
               <input type='radio' name='my-accordion-2' defaultChecked={index === 0} />
               <div className='overflow-x-auto collapse-title text-xl font-medium'>
-                <table className='table'>
+                <table className='table text-center'>
                   <thead>
                     <tr>
                       <th>Dato</th>
@@ -50,12 +50,12 @@ const Vejr_udsigt = ({ dataForecast, dataCoord }) => {
               </div>
               <div className='collapse-content'>
                 <div className='overflow-x-auto'>
-                  <table className='table table-zebra'>
+                  <table className='table table-zebra text-center'>
                     <thead>
                       <tr>
                         <th>Tid</th>
                         <th>Temperatur</th>
-                        <th>Beskrivelse</th>
+                        <th className='text-center'>Beskrivelse</th>
                         <th></th>
                         <th>Luftfugtighed</th>
                         <th>Lufttryk</th>
