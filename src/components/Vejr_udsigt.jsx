@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Vejr_udsigt = ({ dataForecast, dataCoord }) => {
+export default function Vejr_udsigt({ dataForecast, dataCoord }) {
   // Den her funktion beregner dagens dato for hvert objekt i dataForecasten
-  const beregnDagsDato = (dayIndex) => {
+  const beregnDagsDato = (dagIndex) => {
     const dagsDato = new Date();
-    dagsDato.setDate(dagsDato.getDate() + dayIndex);
+    dagsDato.setDate(dagsDato.getDate() + dagIndex);
     return dagsDato.toISOString().split('T')[0];
   };
 
@@ -85,6 +85,4 @@ const Vejr_udsigt = ({ dataForecast, dataCoord }) => {
         })}
     </>
   );
-};
-
-export default Vejr_udsigt;
+}

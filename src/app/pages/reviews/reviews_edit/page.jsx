@@ -8,7 +8,7 @@ import Error from '@/components/Error';
 import Link from 'next/link';
 import { FaChevronLeft } from 'react-icons/fa6';
 
-const Ret_Kommentar = ({ searchParams }) => {
+export default function Ret_Kommentar({ searchParams }) {
   const id = searchParams.id;
 
   const { data, isLoading, error, makeRequest } = useRequestData();
@@ -42,8 +42,6 @@ const Ret_Kommentar = ({ searchParams }) => {
 
       {error || (errorPUT && <Error />)}
       {isLoading || (isLoadingPUT && <Loader />)}
-
-      {/* Beskeden når der er rettet data - PUT */}
 
       {dataPUT && (
         <div className='card w-full bg-base-100 shadow-xl'>
@@ -108,5 +106,4 @@ const Ret_Kommentar = ({ searchParams }) => {
       </form>
     </>
   );
-};
-export default Ret_Kommentar;
+}

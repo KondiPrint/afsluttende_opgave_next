@@ -7,7 +7,7 @@ import useRequestData from '@/components/hooks/useRequestData';
 import Link from 'next/link';
 import { FaEdit, FaTrash, FaPlus } from 'react-icons/fa';
 
-const ReviewAdmin = () => {
+export default function ReviewAdmin() {
   const { data, isLoading, error, makeRequest } = useRequestData();
   const { data: dataDelete, isLoading: isLoadingDelete, error: errorDelete, makeRequest: makeRequestDelete } = useRequestData();
 
@@ -77,6 +77,4 @@ const ReviewAdmin = () => {
       </div>
     </>
   );
-};
-
-export default ReviewAdmin;
+}

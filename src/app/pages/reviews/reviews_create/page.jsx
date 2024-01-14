@@ -5,8 +5,9 @@ import useRequestData from '@/components/hooks/useRequestData';
 import Link from 'next/link';
 import Loader from '@/components/Loader';
 import Error from '@/components/Error';
+import { FaChevronLeft } from 'react-icons/fa6';
 
-const Opret_kommentar = () => {
+export default function Opret_kommentar() {
   const { data, isLoading, error, makeRequest } = useRequestData();
 
   const [author, setAuthor] = useState('');
@@ -76,20 +77,19 @@ const Opret_kommentar = () => {
             onInput={(e) => setContent(e.target.value)}></textarea>
         </label>
 
-        <div className='mt-10'>
+        <div className='mt-10 flex'>
           <Link
             href={{
               pathname: `/pages/reviews/reviews_admin`,
             }}
-            className='btn btn-primary mr-5'>
-            ← Tilbage
+            className='btn btn-primary mr-5 h-fit flex w-fit'>
+            <FaChevronLeft /> Tilbage
           </Link>
-          <button type='submit' className='btn btn-accent'>
+          <button type='submit' className='btn btn-primary h-fit'>
             Færdiggør
           </button>
         </div>
       </form>
     </>
   );
-};
-export default Opret_kommentar;
+}

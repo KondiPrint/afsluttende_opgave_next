@@ -7,8 +7,10 @@ import Loader from '@/components/Loader';
 import Error from '@/components/Error';
 import Vejr_kort from '@/components/Vejr_kort';
 import Vejr_udsigt from '@/components/Vejr_udsigt';
+import Vejr_Map from '@/components/Vejr_map';
+import VejrMap from '@/components/Map/Map';
 
-const Vejret = () => {
+export default function Vejret() {
   const { data, isLoading, error, makeRequest } = useRequestData();
 
   const { data: dataZipcode, isLoading: isLoadingZipcode, error: errorZipcode, makeRequest: makeRequestZipcode } = useRequestData();
@@ -16,6 +18,8 @@ const Vejret = () => {
   const { data: dataForecast, isLoading: isLoadingForecast, error: errorForecast, makeRequest: makeRequestForecast } = useRequestData();
 
   const { data: dataCoord, isLoading: isLoadingCoord, error: errorCoord, makeRequest: makeRequestCoord } = useRequestData();
+
+  const { data: dataMap, isLoading: isLoadingMap, error: errorMap, makeRequest: makeRequestMap } = useRequestData();
 
   const [zip, setZip] = useState('8240');
   const [valid, setValid] = useState(true);
@@ -32,10 +36,12 @@ const Vejret = () => {
       makeRequestForecast(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&lang=da&units=metric&appid=9054bb4dc6a164f93ef4ceb91f4fc8e2`, 'GET');
 
       makeRequestCoord(`https://api.openweathermap.org/geo/1.0/zip?zip=${zip},dk&appid=9054bb4dc6a164f93ef4ceb91f4fc8e2`, 'GET');
+
+      makeRequestMap(`https://api.openweathermap.org/data/2.5/weather?zip=${zip},dk&lang=da&units=metric&appid=9054bb4dc6a164f93ef4ceb91f4fc8e2`);
     }
   }, [zip]);
 
-  http: return (
+  return (
     <>
       <h1 className='text-center text-4xl font-semibold my-5'>Vejrudsigt</h1>
 
@@ -75,11 +81,14 @@ const Vejret = () => {
         </datalist>
       </div>
 
-      {data && <Vejr_kort data={data} />}
+      <div className='card'>
+        <div className='card-body shadow-xl grid grid-cols-1 md:grid-cols-2 w-full h-full'>
+          {data && <Vejr_kort data={data} />}
+          {dataMap && <Vejr_Map coord={[dataMap.coord.lat, dataMap.coord.lon]} info={dataMap.weather[0].description} zoom='10' setLat={setLat} setLon={setLon} />}
+        </div>
+      </div>
 
       {data && <Vejr_udsigt dataForecast={dataForecast} dataCoord={dataCoord} />}
     </>
   );
-};
-
-export default Vejret;
+}

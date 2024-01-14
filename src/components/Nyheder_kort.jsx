@@ -5,7 +5,7 @@ import { formatDistanceToNow } from 'date-fns';
 import { da } from 'date-fns/locale';
 import Link from 'next/link';
 
-const Nyheder_kort = ({ data, currentSide, antalPerSide }) => {
+export default function Nyheder_kort({ data, currentSide, antalPerSide }) {
   const sliceData = (dataToSlice) => {
     return dataToSlice.slice(currentSide * antalPerSide, currentSide * antalPerSide + antalPerSide);
   };
@@ -40,5 +40,4 @@ const Nyheder_kort = ({ data, currentSide, antalPerSide }) => {
       </div>
     </>
   );
-};
-export default Nyheder_kort;
+}

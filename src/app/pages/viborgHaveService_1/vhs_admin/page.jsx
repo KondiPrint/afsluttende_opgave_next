@@ -5,8 +5,9 @@ import useRequestData from '@/components/hooks/useRequestData';
 import Loader from '@/components/Loader';
 import Error from '@/components/Error';
 import Link from 'next/link';
+import { FaChevronLeft } from 'react-icons/fa6';
 
-const VHS_Edit = () => {
+export default function VHS_Edit() {
   const { data, isLoading, error, makeRequest } = useRequestData(); // * GET
   const { data: dataPUT, isLoading: isLoadingPUT, error: errorPUT, makeRequest: makeRequestPUT } = useRequestData(); // * PUT
 
@@ -64,20 +65,19 @@ const VHS_Edit = () => {
             onInput={(e) => setContent(e.target.value)}></textarea>
         </label>
 
-        <div className='mt-10'>
+        <div className='mt-10 flex'>
           <Link
             href={{
               pathname: `/pages/viborgHaveService_1`,
             }}
-            className='btn btn-primary mr-5'>
-            ← Tilbage
+            className='btn btn-primary mr-5 h-fit flex w-fit'>
+            <FaChevronLeft className='' /> Tilbage
           </Link>
-          <button type='submit' className='btn btn-accent'>
+          <button type='submit' className='btn btn-accent h-fit'>
             Færdiggør
           </button>
         </div>
       </form>
     </>
   );
-};
-export default VHS_Edit;
+}

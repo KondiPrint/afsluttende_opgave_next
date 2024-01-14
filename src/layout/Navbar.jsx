@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-const Navbar = () => {
+export default function Navbar() {
   return (
     <>
       <nav className='navbar bg-green-800'>
@@ -58,6 +58,11 @@ const Navbar = () => {
                   </menu>
                 </details>
               </li>
+              <li>
+                <Link href='/pages/film' className='hover:text-gray-200'>
+                  Film liste
+                </Link>
+              </li>
             </menu>
           </div>
         </div>
@@ -110,12 +115,15 @@ const Navbar = () => {
                 </menu>
               </details>
             </li>
+            <li>
+              <Link href='/pages/film' className='hover:text-gray-200'>
+                Film liste
+              </Link>
+            </li>
           </menu>
         </div>
         <div className='navbar-end'></div>
       </nav>
     </>
   );
-};
-
-export default Navbar;
+}

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-const Dots = ({ itemsLength, selectedIndex }) => {
+export default function Dots({ itemsLength, selectedIndex }) {
   const prikker = new Array(itemsLength).fill(0);
   return (
     <div className='flex gap-1 my-2 justify-center -translate-y-5'>
@@ -17,5 +17,4 @@ const Dots = ({ itemsLength, selectedIndex }) => {
       })}
     </div>
   );
-};
-export default Dots;
+}
