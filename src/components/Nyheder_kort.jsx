@@ -5,15 +5,19 @@ import { formatDistanceToNow } from 'date-fns';
 import { da } from 'date-fns/locale';
 import Link from 'next/link';
 
-const Nyheder_kort = ({ data }) => {
+const Nyheder_kort = ({ data, currentSide, antalPerSide }) => {
+  const sliceData = (dataToSlice) => {
+    return dataToSlice.slice(currentSide * antalPerSide, currentSide * antalPerSide + antalPerSide);
+  };
+
   return (
     <>
-      <div className='grid grid-cols-3 gap-10'>
+      <div className='grid grid-cols-1 text-center gap-y-10 md:text-justify sm:grid-cols-2 sm:gap-x-4 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
         {data &&
-          data.articles.map((n, index) => (
-            <div className='card card-compact w-96 shadow-xl bg-base-100' key={index}>
-              <figure className='card max-h-72 flex justify-center'>
-                <img className='object-cover h-64' src={n.urlToImage} alt='News-picture' />
+          sliceData(data?.articles).map((n, index) => (
+            <div className='card card-compact w-96 shadow-xl bg-base-100 mx-auto sm:w-fit' key={index}>
+              <figure>
+                <img className='object-cover' src={n.urlToImage} alt='News-picture' />
               </figure>
               <div className='card-body'>
                 <h2 className='card-title'>{n.title}</h2>

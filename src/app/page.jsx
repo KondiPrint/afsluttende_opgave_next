@@ -8,7 +8,9 @@ export default function Home() {
 
   return (
     <>
-      <h1>Home</h1>
+      <section className='min-h-full'>
+        <h1>Home</h1>
+      </section>
 
       {isLoading && <Loader />}
       {error && <Error />}

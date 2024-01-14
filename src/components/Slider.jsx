@@ -28,7 +28,7 @@ export default function Slider({ children, ...options }) {
   return (
     <>
       <div className='overflow-hidden' ref={emblaRef}>
-        <div className='flex'>{children}</div>
+        <div className='flex '>{children}</div>
       </div>
 
       <Dots itemsLength={length} selectedIndex={selectedIndex} />

@@ -36,14 +36,14 @@ const ReviewAdmin = () => {
                 <th></th>
                 <th></th>
                 <th></th>
-                <th className='text-center'>
-                  <Link className='text-center btn btn-primary' href={`/pages/reviews/reviews_create`}>
+                <th className='text-right'>
+                  <Link className='w-fit btn btn-primary' href={`/pages/reviews/reviews_create`}>
                     <FaPlus size='1.5em' />
                   </Link>
                 </th>
               </tr>
               <tr>
-                <th></th>
+                <th>#</th>
                 <th>ID</th>
                 <th>Forfatter</th>
                 <th>Rediger</th>
@@ -55,7 +55,7 @@ const ReviewAdmin = () => {
                 data.map((r, index) => (
                   <tr key={r._id}>
                     <th>{index + 1}</th>
-                    <td>{r._id}</td>
+                    <td className='flex break-all'>{r._id}</td>
                     <td>{r.author}</td>
                     <td>
                       <Link

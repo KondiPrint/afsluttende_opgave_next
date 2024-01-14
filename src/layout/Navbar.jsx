@@ -85,9 +85,9 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <details>
+              <details className='dropdown'>
                 <summary>Viborg Haveservice</summary>
-                <menu className='p-2'>
+                <menu className='p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-11/12'>
                   <li>
                     <Link href='/pages/viborgHaveService_1'>Om os</Link>
                   </li>
@@ -98,9 +98,9 @@ const Navbar = () => {
               </details>
             </li>
             <li>
-              <details>
+              <details className='dropdown'>
                 <summary>Reviews</summary>
-                <menu className='p-2'>
+                <menu className='p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-11/12'>
                   <li>
                     <Link href='/pages/reviews'>Reviews</Link>
                   </li>

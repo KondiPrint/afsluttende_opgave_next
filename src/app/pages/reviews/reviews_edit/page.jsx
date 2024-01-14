@@ -6,6 +6,7 @@ import useRequestData from '@/components/hooks/useRequestData';
 import Loader from '@/components/Loader';
 import Error from '@/components/Error';
 import Link from 'next/link';
+import { FaChevronLeft } from 'react-icons/fa6';
 
 const Ret_Kommentar = ({ searchParams }) => {
   const id = searchParams.id;
@@ -92,15 +93,15 @@ const Ret_Kommentar = ({ searchParams }) => {
             onInput={(e) => setContent(e.target.value)}></textarea>
         </label>
 
-        <div className='mt-10'>
+        <div className='mt-10 flex'>
           <Link
             href={{
               pathname: `/pages/reviews/reviews_admin`,
             }}
-            className='btn btn-primary mr-5'>
-            ← Tilbage
+            className='btn btn-primary mr-5 h-fit flex w-fit'>
+            <FaChevronLeft className='' /> Tilbage
           </Link>
-          <button type='submit' className='btn btn-accent'>
+          <button type='submit' className='btn btn-accent h-fit'>
             Færdiggør
           </button>
         </div>

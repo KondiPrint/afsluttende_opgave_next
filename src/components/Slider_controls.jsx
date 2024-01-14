@@ -1,27 +1,21 @@
-import classNames from 'classnames';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 export default function SliderControls(navigation) {
   return (
-    <div className='flex justify-center gap-2 '>
+    <div className='flex justify-center gap-5 '>
       <button
         onClick={() => {
           navigation.onPrev();
         }}
-        className={classNames({
-          'px-4 py-2 text-white rounded-md': true,
-          'bg-indigo-400': navigation.canScrollPrev,
-        })}>
-        Forrige
+        className='btn btn-primary text-white mb-56'>
+        <FaChevronLeft />
       </button>
       <button
         onClick={() => {
           navigation.onNext();
         }}
-        className={classNames({
-          'px-4 py-2 text-white rounded-md': true,
-          'bg-indigo-400': navigation.canScrollNext,
-        })}>
-        Næste
+        className='btn btn-primary text-white'>
+        <FaChevronRight />
       </button>
     </div>
   );

@@ -7,8 +7,8 @@ export default function DK1_liste({ data, currentSide, antalPerSide }) {
 
   return (
     <>
-      <div className='overflow-x-auto w-11/12 mx-auto'>
-        <table className='table table-zebra w-1/2 text-center mx-auto'>
+      <div className='overflow-x-auto mx-auto'>
+        <table className='table table-zebra text-center mx-auto'>
           <thead>
             <tr>
               <th>#</th>
@@ -34,7 +34,7 @@ export default function DK1_liste({ data, currentSide, antalPerSide }) {
                     })}
                   </td>
                   <td>{d.PriceArea}</td>
-                  <td>DKK {Math.round(d.SpotPriceDKK)}</td>
+                  <td>DKK {Math.round(d.SpotPriceDKK)},-</td>
                   <td>€{Math.round(d.SpotPriceEUR)}</td>
                 </tr>
               ))}

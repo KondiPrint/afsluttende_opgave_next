@@ -22,7 +22,7 @@ export default function ViborgHaveService1() {
       {isLoading && <Loader />}
       {error && <Error />}
 
-      <div className='container grid grid-cols-2 grid-rows-2'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 grid-rows-2 h-full'>
         <div className='row-span-2'>
           <h1 className='text-5xl mb-14'>
             Velkommen til{' '}
