@@ -6,7 +6,7 @@ export default function PrevNext({ data, setCurrentSide, currentSide, dataLength
 
   return (
     <>
-      <div className='flex flex-col'>
+      <aside className='flex flex-col'>
         <div className='flex items-center justify-between px-4 sm:px-6'>
           <button className='btn sm:hidden' onClick={() => setCurrentSide(currentSide - 1)} disabled={currentSide <= 0}>
             <FaChevronLeft />
@@ -43,7 +43,7 @@ export default function PrevNext({ data, setCurrentSide, currentSide, dataLength
             <span className='font-medium'>{Math.min((currentSide + 1) * antalPerSide, dataLength || 0)}</span> af <span className='font-medium'>{dataLength || 0}</span> resultater
           </p>
         </div>
-      </div>
+      </aside>
     </>
   );
 }

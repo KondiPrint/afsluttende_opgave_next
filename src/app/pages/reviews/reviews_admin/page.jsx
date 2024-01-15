@@ -24,11 +24,12 @@ export default function ReviewAdmin() {
   return (
     <>
       <h1 className='text-center text-4xl font-semibold my-5'>Her kan du redigere i reviews</h1>
-      <div>
-        {isLoading && <Loader />}
-        {error && <h2>Error ...</h2>}
 
-        <div className='overflow-x-auto'>
+      {isLoading && <Loader />}
+      {error && <h2>Error ...</h2>}
+
+      <section>
+        <article className='overflow-x-auto'>
           <table className='table table-zebra'>
             <thead>
               <tr>
@@ -73,8 +74,8 @@ export default function ReviewAdmin() {
                 ))}
             </tbody>
           </table>
-        </div>
-      </div>
+        </article>
+      </section>
     </>
   );
 }

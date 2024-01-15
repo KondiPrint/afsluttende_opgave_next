@@ -5,7 +5,7 @@ export default function Vejr_kort({ data }) {
   return (
     <>
       {data && (
-        <div className='card w-full'>
+        <section className='card w-full'>
           <article className='card-body shadow-xl'>
             <h2 className='my-4 text-3xl card-title'>Vejret for {data.name}</h2>
             <h3 className='text-center text-xl italic my-6 capitalize'>{data.weather[0].description}</h3>
@@ -24,7 +24,7 @@ export default function Vejr_kort({ data }) {
               <li>Sunset at: {new Date(data.sys.sunset * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</li>
             </ul>
           </article>
-        </div>
+        </section>
       )}
     </>
   );

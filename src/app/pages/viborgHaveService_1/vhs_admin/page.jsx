@@ -8,12 +8,11 @@ import Link from 'next/link';
 import { FaChevronLeft } from 'react-icons/fa6';
 
 export default function VHS_Edit() {
-  const { data, isLoading, error, makeRequest } = useRequestData(); // * GET
-  const { data: dataPUT, isLoading: isLoadingPUT, error: errorPUT, makeRequest: makeRequestPUT } = useRequestData(); // * PUT
+  const { data, isLoading, error, makeRequest } = useRequestData();
+  const { data: dataPUT, isLoading: isLoadingPUT, error: errorPUT, makeRequest: makeRequestPUT } = useRequestData();
 
   const [content, setContent] = useState('');
 
-  // * Hent data (GET)
   useEffect(() => {
     makeRequest(`http://localhost:5023/aboutus`, 'GET', null);
   }, []);
@@ -24,9 +23,8 @@ export default function VHS_Edit() {
     }
   }, [data]);
 
-  // * Der er klikket på submit-button - send data til API (PUT)
   const handleSubmit = (e) => {
-    e.preventDefault(); //VIGTIG!!
+    e.preventDefault();
 
     const redigeretText = { content: content };
 
@@ -41,14 +39,14 @@ export default function VHS_Edit() {
       {isLoading || (isLoadingPUT && <Loader />)}
 
       {dataPUT && (
-        <div className='card w-full bg-base-100 shadow-xl'>
+        <aside className='card w-full bg-base-100 shadow-xl'>
           <div className='card-body'>
             <h2 className='text-center italic text-2xl'>Teksten er blevet redigeret</h2>
             <div>
               <p>{dataPUT.about.content}</p>
             </div>
           </div>
-        </div>
+        </aside>
       )}
 
       <form className='form-control my-10' onSubmit={handleSubmit}>

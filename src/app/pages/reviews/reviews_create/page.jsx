@@ -13,9 +13,8 @@ export default function Opret_kommentar() {
   const [author, setAuthor] = useState('');
   const [content, setContent] = useState('');
 
-  // * Der er klikket på submit-button - send data til API
   const handleSubmit = (e) => {
-    e.preventDefault(); //VIGTIG!!
+    e.preventDefault();
 
     const nyKommentar = { author: author, content: content };
 
@@ -29,10 +28,8 @@ export default function Opret_kommentar() {
       {isLoading && <Loader />}
       {error && <Error />}
 
-      {/* Beskeden når der er rettet data - PUT */}
-
       {data && (
-        <div className='card mb-6'>
+        <article className='card mb-6'>
           <h2 className='text-center italic text-2xl'>Kommentaren er nu oprettet</h2>
           <div className='card'>
             <p>
@@ -44,7 +41,7 @@ export default function Opret_kommentar() {
               <br /> {data.review.content}
             </p>
           </div>
-        </div>
+        </article>
       )}
 
       <form className='form-control' onSubmit={handleSubmit}>

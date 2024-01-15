@@ -12,7 +12,7 @@ export default function Nyheder_kort({ data, currentSide, antalPerSide }) {
 
   return (
     <>
-      <div className='grid grid-cols-1 text-center gap-y-10 md:text-justify sm:grid-cols-2 sm:gap-x-4 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
+      <article className='grid grid-cols-1 text-center gap-y-10 md:text-justify sm:grid-cols-2 sm:gap-x-4 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5'>
         {data &&
           sliceData(data?.articles).map((n, index) => (
             <div className='card card-compact w-96 shadow-xl bg-base-100 mx-auto sm:w-fit' key={index}>
@@ -30,14 +30,14 @@ export default function Nyheder_kort({ data, currentSide, antalPerSide }) {
                 </div>
                 <p>{n.content}</p>
               </div>
-              <div className='card-actions justify-end'>
+              <span className='card-actions justify-end'>
                 <Link className='btn btn-primary' href={n.url} target='_blank' rel='noreferrer'>
                   Læs mere
                 </Link>
-              </div>
+              </span>
             </div>
           ))}
-      </div>
+      </article>
     </>
   );
 }

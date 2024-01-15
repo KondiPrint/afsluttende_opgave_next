@@ -16,8 +16,9 @@ export default function Reviews() {
     <>
       {isLoading && <Loader />}
       {error && <Error />}
+
       <section className='h-full'>
-        <div className=' bg-img-bg bg-lime-600 bg-blend-overlay'>
+        <article className=' bg-img-bg bg-lime-600 bg-blend-overlay'>
           <h1 className='text-center pt-24 text-5xl md:text-7xl text-white '>Kundeudtalelser</h1>
           <div className='flex justify-center'>
             <span className='w-32 border-b-4 h-1 pt-5'></span>
@@ -33,7 +34,7 @@ export default function Reviews() {
                 ))}
             </Slider>
           </div>
-        </div>
+        </article>
       </section>
     </>
   );

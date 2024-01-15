@@ -29,7 +29,7 @@ export default function Ret_Kommentar({ searchParams }) {
   }, [data]);
 
   const handleSubmit = (e) => {
-    e.preventDefault(); //VIGTIG!!
+    e.preventDefault();
 
     const rettedeKommentar = { author: author, content: content };
 
@@ -44,7 +44,7 @@ export default function Ret_Kommentar({ searchParams }) {
       {isLoading || (isLoadingPUT && <Loader />)}
 
       {dataPUT && (
-        <div className='card w-full bg-base-100 shadow-xl'>
+        <article className='card w-full bg-base-100 shadow-xl'>
           <div className='card-body'>
             <h2 className='text-center italic text-2xl'>Teksten er blevet redigeret</h2>
             <div>
@@ -58,7 +58,7 @@ export default function Ret_Kommentar({ searchParams }) {
               </p>
             </div>
           </div>
-        </div>
+        </article>
       )}
 
       <form className='form-control my-10' onSubmit={handleSubmit}>

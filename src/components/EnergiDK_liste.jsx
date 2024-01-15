@@ -7,7 +7,7 @@ export default function DK_liste({ data, currentSide, antalPerSide }) {
 
   return (
     <>
-      <div className='overflow-x-auto mx-auto'>
+      <article className='overflow-x-auto mx-auto'>
         <table className='table table-zebra text-center mx-auto'>
           <thead>
             <tr>
@@ -40,7 +40,7 @@ export default function DK_liste({ data, currentSide, antalPerSide }) {
               ))}
           </tbody>
         </table>
-      </div>
+      </article>
     </>
   );
 }

@@ -29,7 +29,7 @@ export default function EnergiData() {
       {isLoading && <Loader />}
       {error && <Error />}
 
-      <div className='flex flex-wrap mb-7 gap-y-5 w-full justify-between sm:gap-y-0'>
+      <section className='flex flex-wrap mb-7 gap-y-5 w-full justify-between sm:gap-y-0'>
         <form className='flex flex-wrap gap-y-5'>
           <label className='max-w-xs w-fit'>
             <div className='label'>
@@ -70,13 +70,13 @@ export default function EnergiData() {
         <div className=''>
           <AntalPerSide setAntalPerSide={setAntalPerSide} setCurrentSide={setCurrentSide} />
         </div>
-      </div>
+      </section>
 
       <DK_liste data={data} setAntalPerSide={setAntalPerSide} setCurrentSide={setCurrentSide} antalPerSide={antalPerSide} currentSide={currentSide} />
 
-      <div className='flex justify-center mt-5 md:mt-10'>
+      <span className='flex justify-center mt-5 md:mt-10'>
         <PrevNext setCurrentSide={setCurrentSide} currentSide={currentSide} dataLength={dataLength} antalPerSide={antalPerSide} data={data} />
-      </div>
+      </span>
     </>
   );
 }

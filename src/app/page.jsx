@@ -18,7 +18,7 @@ export default function Home() {
           <div>
             <Link href={'/pages/energidata'}>
               <p className='text-center'>Energidata</p>
-              <img className='scale-95 hover:scale-110 transition-all duration-500' src='../../images/eksperimentarium.png' alt='Eksperimentarium' />
+              <img className='scale-95 hover:scale-110 transition-all duration-500' src='../../images/energidata.png' alt='Energidata banner' />
             </Link>
           </div>
           <div>
@@ -30,7 +30,7 @@ export default function Home() {
           <div>
             <p className='text-center'>Vejret</p>
             <Link href={'/pages/vejret'}>
-              <img className='scale-95 hover:scale-110 transition-all duration-500' src='../../images/nature.png' alt='Grønne områder' />
+              <img className='scale-95 hover:scale-110 transition-all duration-500' src='../../images/vejret.png' alt='Vejret banner' />
             </Link>
           </div>
           <div>
@@ -42,7 +42,7 @@ export default function Home() {
           <div>
             <p className='text-center hover:opacity-0'>Viborg Haveservice</p>
             <Link href={'/pages/viborgHaveService_1'}>
-              <img className='scale-95 hover:scale-110 transition-all duration-500' src='../../images/tinyhouse.png' alt='Tiny Houses' />
+              <img className='scale-95 hover:scale-110 transition-all duration-500' src='../../images/vhs.png' alt='Viborg Haveservice banner' />
             </Link>
           </div>
         </div>

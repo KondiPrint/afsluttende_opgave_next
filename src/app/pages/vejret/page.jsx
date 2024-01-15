@@ -8,7 +8,6 @@ import Error from '@/components/Error';
 import Vejr_kort from '@/components/Vejr_kort';
 import Vejr_udsigt from '@/components/Vejr_udsigt';
 import Vejr_Map from '@/components/Vejr_map';
-import VejrMap from '@/components/Map/Map';
 
 export default function Vejret() {
   const { data, isLoading, error, makeRequest } = useRequestData();
@@ -48,7 +47,7 @@ export default function Vejret() {
       {isLoading && <Loader />}
       {error && <Error />}
 
-      <div className='flex flex-col my-6'>
+      <aside className='flex flex-col my-6'>
         <input
           type='text'
           list='list_zips'
@@ -79,14 +78,14 @@ export default function Vejret() {
               </option>
             ))}
         </datalist>
-      </div>
+      </aside>
 
-      <div className='card'>
-        <div className='card-body shadow-xl grid grid-cols-1 md:grid-cols-2 w-full h-full'>
+      <section className='card'>
+        <article className='card-body shadow-xl grid grid-cols-1 md:grid-cols-2 w-full h-full'>
           {data && <Vejr_kort data={data} />}
           {dataMap && <Vejr_Map coord={[dataMap.coord.lat, dataMap.coord.lon]} info={dataMap.weather[0].description} zoom='10' setLat={setLat} setLon={setLon} />}
-        </div>
-      </div>
+        </article>
+      </section>
 
       {data && <Vejr_udsigt dataForecast={dataForecast} dataCoord={dataCoord} />}
     </>

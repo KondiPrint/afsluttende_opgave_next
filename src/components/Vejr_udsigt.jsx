@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function Vejr_udsigt({ dataForecast, dataCoord }) {
-  // Den her funktion beregner dagens dato for hvert objekt i dataForecasten
+  // Den her funktion beregner dagens dato for hvert objekt i dataForecast
   const beregnDagsDato = (dagIndex) => {
     const dagsDato = new Date();
     dagsDato.setDate(dagsDato.getDate() + dagIndex);
@@ -14,11 +14,11 @@ export default function Vejr_udsigt({ dataForecast, dataCoord }) {
       {dataForecast &&
         // Her sørger jeg for at den HØJST laver 5 accordians (da det kun er 5 dage frem, at den samler dataForecast)
         Array.from({ length: 5 }).map((f, index) => {
-          // Her beregner den datoen for den nuværende dag
-          const dayDate = beregnDagsDato(index);
+          // Her beregner den datoen for den tilsvarende dag
+          const dagsDato = beregnDagsDato(index);
 
           // Her filtrer den dataForecasten for den specifikke dag, ved brug af dataForecast.list.dt_text
-          const daydataForecast = dataForecast?.list.filter((day) => day.dt_txt.includes(dayDate));
+          const dagsDataForecast = dataForecast?.list.filter((d) => d.dt_txt.includes(dagsDato));
 
           // Her snupper den tidspunkt for solopgang/solnedgang for den specifikke dag, fra dataForecast.city
           const solInfo = dataForecast?.city || {};
@@ -26,7 +26,7 @@ export default function Vejr_udsigt({ dataForecast, dataCoord }) {
           const dayNedgang = solInfo.sunset || '';
 
           return (
-            <div className='collapse collapse-arrow bg-base-200 mt-10' key={index}>
+            <article className='collapse collapse-arrow bg-base-200 mt-10' key={index}>
               <input type='radio' name='my-accordion-2' defaultChecked={index === 0} />
               <div className='overflow-x-auto collapse-title text-xl font-medium'>
                 <table className='table text-center'>
@@ -40,7 +40,7 @@ export default function Vejr_udsigt({ dataForecast, dataCoord }) {
                   <tbody>
                     {dayOpgang && dayNedgang && (
                       <tr className='bg-base-200'>
-                        <th>{dayDate}</th>
+                        <th>{dagsDato}</th>
                         <td>{new Date(dayOpgang * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</td>
                         <td>{new Date(dayNedgang * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</td>
                       </tr>
@@ -62,7 +62,7 @@ export default function Vejr_udsigt({ dataForecast, dataCoord }) {
                       </tr>
                     </thead>
                     <tbody>
-                      {daydataForecast.map((f, index2) => (
+                      {dagsDataForecast.map((f, index2) => (
                         <tr key={index2}>
                           <td>{new Date(f.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</td>
                           <td>{Math.round(f.main.temp)}&deg;C</td>
@@ -80,7 +80,7 @@ export default function Vejr_udsigt({ dataForecast, dataCoord }) {
                   </table>
                 </div>
               </div>
-            </div>
+            </article>
           );
         })}
     </>

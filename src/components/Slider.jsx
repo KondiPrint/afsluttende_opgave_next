@@ -4,6 +4,8 @@ import Dots from './Slider_dots';
 import SliderControls from './Slider_controls';
 import React from 'react';
 
+/* Den her slider er blevet snuppet fra https://reacthustle.com/blog/nextjs-carousel-tailwindcss-embla-carousel, med få ændringer til controls og dots */
+
 export default function Slider({ children, ...options }) {
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
 

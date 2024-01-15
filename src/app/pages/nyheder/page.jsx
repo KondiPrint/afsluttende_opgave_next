@@ -43,10 +43,11 @@ export default function Nyheder() {
   return (
     <>
       <h1 className='text-center text-4xl font-semibold mb-8'>Nyheder</h1>
+
       {isLoading && <Loader />}
       {error && <Error />}
 
-      <div className='mb-10 mx-auto w-11/12 sm:w-full'>
+      <section className='mb-10 mx-auto w-11/12 sm:w-full'>
         <AntalPerSide setAntalPerSide={setAntalPerSide} setCurrentSide={setCurrentSide} />
         <form
           onSubmit={(e) => {
@@ -93,11 +94,11 @@ export default function Nyheder() {
             </select>
           </div>
         </form>
-      </div>
+      </section>
       <Nyheder_kort data={data} setAntalPerSide={setAntalPerSide} setCurrentSide={setCurrentSide} antalPerSide={antalPerSide} currentSide={currentSide} />
-      <div className='flex justify-center mt-5 md:mt-10'>
+      <span className='flex justify-center mt-5 md:mt-10'>
         <PrevNext setCurrentSide={setCurrentSide} currentSide={currentSide} dataLength={dataLength} antalPerSide={antalPerSide} data={data} />
-      </div>
+      </span>
     </>
   );
 }
