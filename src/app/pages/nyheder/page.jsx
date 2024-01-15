@@ -43,7 +43,6 @@ export default function Nyheder() {
   return (
     <>
       <h1 className='text-center text-4xl font-semibold mb-8'>Nyheder</h1>
-
       {isLoading && <Loader />}
       {error && <Error />}
 
@@ -95,9 +94,7 @@ export default function Nyheder() {
           </div>
         </form>
       </div>
-
       <Nyheder_kort data={data} setAntalPerSide={setAntalPerSide} setCurrentSide={setCurrentSide} antalPerSide={antalPerSide} currentSide={currentSide} />
-
       <div className='flex justify-center mt-5 md:mt-10'>
         <PrevNext setCurrentSide={setCurrentSide} currentSide={currentSide} dataLength={dataLength} antalPerSide={antalPerSide} data={data} />
       </div>

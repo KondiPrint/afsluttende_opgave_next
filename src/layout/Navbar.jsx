@@ -1,9 +1,10 @@
 import Link from 'next/link';
+import { FaChevronUp } from 'react-icons/fa';
 
 export default function Navbar() {
   return (
     <>
-      <nav className='navbar bg-green-800'>
+      <nav className='navbar bg-green-800' id='top'>
         <div className='navbar-start'>
           <div className='dropdown'>
             <div tabIndex={0} role='button' className='btn btn-ghost lg:hidden'>
@@ -124,6 +125,12 @@ export default function Navbar() {
         </div>
         <div className='navbar-end'></div>
       </nav>
+
+      <span className='fixed bottom-5 right-5'>
+        <a href='#top'>
+          <FaChevronUp className='h-5 w-5 fill-black dark:fill-white hidden md:block' />
+        </a>
+      </span>
     </>
   );
 }

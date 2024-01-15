@@ -13,7 +13,7 @@ export default function Vejr_udsigt({ dataForecast, dataCoord }) {
       {dataCoord && <h3 className='text-center mt-20 text-3xl'>Udsigten for de næste 5 dage i {dataCoord.name}</h3>}
       {dataForecast &&
         // Her sørger jeg for at den HØJST laver 5 accordians (da det kun er 5 dage frem, at den samler dataForecast)
-        Array.from({ length: 5 }).map((_, index) => {
+        Array.from({ length: 5 }).map((f, index) => {
           // Her beregner den datoen for den nuværende dag
           const dayDate = beregnDagsDato(index);
 
@@ -62,8 +62,8 @@ export default function Vejr_udsigt({ dataForecast, dataCoord }) {
                       </tr>
                     </thead>
                     <tbody>
-                      {daydataForecast.map((f, subIndex) => (
-                        <tr key={subIndex}>
+                      {daydataForecast.map((f, index2) => (
+                        <tr key={index2}>
                           <td>{new Date(f.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</td>
                           <td>{Math.round(f.main.temp)}&deg;C</td>
                           <td>{f.weather[0].description}</td>

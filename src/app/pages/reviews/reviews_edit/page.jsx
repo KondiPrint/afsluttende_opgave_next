@@ -99,7 +99,7 @@ export default function Ret_Kommentar({ searchParams }) {
             className='btn btn-primary mr-5 h-fit flex w-fit'>
             <FaChevronLeft className='' /> Tilbage
           </Link>
-          <button type='submit' className='btn btn-accent h-fit'>
+          <button type='submit' className='btn btn-primary h-fit'>
             Færdiggør
           </button>
         </div>

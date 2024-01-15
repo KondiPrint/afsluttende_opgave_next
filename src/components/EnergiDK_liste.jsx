@@ -1,6 +1,6 @@
 'use client';
 
-export default function DK1_liste({ data, currentSide, antalPerSide }) {
+export default function DK_liste({ data, currentSide, antalPerSide }) {
   const sliceData = (dataToSlice) => {
     return dataToSlice.slice(currentSide * antalPerSide, currentSide * antalPerSide + antalPerSide);
   };

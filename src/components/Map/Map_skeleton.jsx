@@ -1,4 +1,4 @@
-/* import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import 'leaflet-defaulticon-compatibility/dist/leaflet-defaulticon-compatibility.css';
 import 'leaflet-defaulticon-compatibility';
@@ -22,4 +22,4 @@ function MapSkeleton({ coord = [56, 10], zoom = '13', info = '', setLat = null, 
   );
 }
 
-export default MapSkeleton; */
+export default MapSkeleton;
