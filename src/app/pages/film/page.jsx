@@ -17,7 +17,7 @@ export default function Film_Liste() {
       'GET',
       null,
       {
-        'X-RapidAPI-Key': '3ffdf47f00msh2c2a7383384b5a4p18dd69jsn60ef9aaa38bf',
+        'X-RapidAPI-Key': 'YOUR_API_KEY',
         'X-RapidAPI-Host': 'imdb146.p.rapidapi.com',
       },
       { query: searchFilm }

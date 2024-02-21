@@ -22,7 +22,7 @@ export default function Nyheder() {
   const newsPara = newsRequestParameter;
 
   useEffect(() => {
-    makeRequest(`https://newsapi.org/v2/everything?q=${searchKey}&language=${langKey}&sortBy=${sortKey}&apiKey=d7c190b4d390401895223a0ac6fe7794`, 'GET');
+    makeRequest(`https://newsapi.org/v2/everything?q=${searchKey}&language=${langKey}&sortBy=${sortKey}&apiKey=YOUR_API_KEY`, 'GET');
   }, [langKey, sortKey]);
 
   // * Håndter KeyDown (indtastning) i inputfeltet - hvis Enter = start søgning
@@ -35,7 +35,7 @@ export default function Nyheder() {
   // * Søgning i API'en
   const handleSearch = (e) => {
     e.preventDefault();
-    makeRequest(`https://newsapi.org/v2/everything?q=${searchKey}&language=${langKey}&sortBy=${sortKey}&apiKey=d7c190b4d390401895223a0ac6fe7794`, 'GET');
+    makeRequest(`https://newsapi.org/v2/everything?q=${searchKey}&language=${langKey}&sortBy=${sortKey}&apiKey=YOUR_API_KEY`, 'GET');
   };
 
   let dataLength = data?.articles.length;

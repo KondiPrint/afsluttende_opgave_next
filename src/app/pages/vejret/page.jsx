@@ -30,13 +30,13 @@ export default function Vejret() {
     makeRequestZipcode(`https://api.dataforsyningen.dk/postnumre/autocomplete?q=${zip}`, 'GET');
 
     if (valid) {
-      makeRequest(`https://api.openweathermap.org/data/2.5/weather?zip=${zip},dk&units=metric&&appid=9054bb4dc6a164f93ef4ceb91f4fc8e2&lang=da`, 'GET');
+      makeRequest(`https://api.openweathermap.org/data/2.5/weather?zip=${zip},dk&units=metric&&appid=YOUR_API_KEY&lang=da`, 'GET');
 
-      makeRequestForecast(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&lang=da&units=metric&appid=9054bb4dc6a164f93ef4ceb91f4fc8e2`, 'GET');
+      makeRequestForecast(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&lang=da&units=metric&appid=YOUR_API_KEY`, 'GET');
 
-      makeRequestCoord(`https://api.openweathermap.org/geo/1.0/zip?zip=${zip},dk&appid=9054bb4dc6a164f93ef4ceb91f4fc8e2`, 'GET');
+      makeRequestCoord(`https://api.openweathermap.org/geo/1.0/zip?zip=${zip},dk&appid=YOUR_API_KEY`, 'GET');
 
-      makeRequestMap(`https://api.openweathermap.org/data/2.5/weather?zip=${zip},dk&lang=da&units=metric&appid=9054bb4dc6a164f93ef4ceb91f4fc8e2`);
+      makeRequestMap(`https://api.openweathermap.org/data/2.5/weather?zip=${zip},dk&lang=da&units=metric&appid=YOUR_API_KEY`);
     }
   }, [zip]);
 
